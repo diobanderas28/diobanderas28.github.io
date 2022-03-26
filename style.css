@@ -38,6 +38,10 @@
   .atas{
     height: 370px;
   }
-  .card{
-      width: 100%;
+  #tes-grid{
+    display: grid;
+  }
+  #item-3{
+    margin-top: 15px;
+  }
 }
