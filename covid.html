@@ -6,15 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+            background-color: #282828;
+        }
+        
         *{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        #konten{
+            padding: 10px;
+            width: 30%;
+        }
+        
+        @media (max-width: 768px) {
+            #konten{
+                width: 100%;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
 </head>
 <body>
-    <div class="container" style="padding: 10px; width: 30%;">
+    <div class="container" id="konten">
         <p><span id="tanggalwaktu"></span></p>
         <div class="card mb-2">
             <div class="card-body">
