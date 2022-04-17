@@ -4,12 +4,31 @@
     font-family: monospace;
 }
 
+#appreance_toggle{
+  position: relative;
+  margin-top: 25px;
+}
+
 .atas{
     width: 100%;
     height: 300px;
+    text-align: center;
     background-color: #282828;
     color: white;
-    text-align: center;
+}
+
+.tengah{
+  background-color: #282828;
+    color: white;
+}
+
+.tengah #tes-grid{
+  color: black;
+}
+
+.bawah{
+  background-color: #282828;
+    color: white;
 }
 
 .row{
