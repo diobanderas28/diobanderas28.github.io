@@ -11,8 +11,12 @@
 </head>
 <body>
     <div class="atas" id="atas">
-        <div class="container">
-          <button type="button" class="btn btn-light" id="appreance_toggle" onclick="toggle_function()">Dark Mode</button>
+      <div class="container">
+        <label class="switch">
+          <input type="checkbox" onclick="toggle_function()">
+          <span class="slider"></span>
+        </label>
+          <text style="display: none;" id="appreance_toggle" onclick="toggle_function()">Dark Mode</text>
             <div class="row">
                 <div class="col align-self-center">
                     <h2>Dio Banderas</h2>
@@ -28,81 +32,54 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h3>Tentang Saya</h3>
+                    <h3> <img src="./Image/icons8-male-user.gif" alt="about-icon" width="40px" height="40px" style="border-radius: 50%;"> Tentang Saya</h3>
                     <hr>
                     <p>
-                        Nama saya Dio Banderas, saya berasal dari kota Pangkalpinang, Bangka Belitung. Lulusan S1 dari Universitas Bina Nusantara dengan jurusan Computer Science. Saya
-                        sangat tertarik untuk mempelajari hal-hal baru yang belum saya ketahui sehingga dapat menambah pengalaman dan wawasan saya dalam dunia komputer.
+                        Saya seorang fresh graduate dari Universitas Bina Nusantara yang memiliki kemampuan untuk menggunakan komputer dengan baik dan tertarik untuk mempelajari hal – hal baru sehingga dapat menambah pengalaman serta mendukung kemampuan yang saya miliki.
                     </p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row gap-atas">
                 <div class="col-md-12">
-                    <h3>Proyek</h3>
+                    <h3> <img src="./Image/icons8-task.gif" alt="project-icon" height="40px" width="40px" style="border-radius: 5px;"> Proyek</h3>
                     <hr>
                     <div class="row" id="tes-grid">
                         <div class="col-md-4 mb-4" id="item-1">
-                            <div class="card shadow-sm">
+                          <a href="http://barteridonline.000webhostapp.com/" style="text-decoration: none; color: black;">
+                            <div class="card shadow-sm card-item">
                               <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="Image/joel-muniz-aJe1a2ZpubA-unsplash.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>
                   
                               <div class="card-body">
                                 <p class="card-text">Barter.ID merupakan aplikasi website untuk menjembatani para pengguna terutama K-POP Lovers untuk melakukan barter sehingga pengguna akan merasa lebih aman.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                  <div class="btn-group">
-                                    <a href="http://barteridonline.000webhostapp.com/"><button type="button" class="btn btn-sm btn-dark">View</button></a>
-                                  </div>
-                                </div>
                               </div>
                             </div>
+                          </a>
                         </div>
                         <div class="col-md-4" id="item-2">
-                            <div class="card shadow-sm">
+                          <a href="weather.html" style="text-decoration: none; color: black;">
+                            <div class="card shadow-sm card-item">
                               <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="Image/wim-van-t-einde-uj7eb7CgqRk-unsplash.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>
                   
                               <div class="card-body">
                                 <p class="card-text">Website ini merupakan aplikasi website sederhana yang dimana untuk mengambil data API cuaca dan pengguna dapat memasukkan kota yang ingin
                                     dicari cuacanya.
                                 </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                  <div class="btn-group">
-                                    <a href="weather.html"><button type="button" class="btn btn-sm btn-dark">View</button></a>
-                                  </div>
-                                </div>
                               </div>
                             </div>
+                          </a>
                         </div>
                         <div class="col-md-4" id="item-3">
-                            <div class="card shadow-sm">
+                          <a href="covid.html" style="text-decoration: none; color: black;">
+                            <div class="card shadow-sm card-item">
                               <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="Image/martin-sanchez-j2c7yf223Mk-unsplash.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>
                   
                               <div class="card-body">
                                 <p class="card-text">Merupakan aplikasi website sederhana untuk melihat data perkembangan dari pandemic sekarang yaitu COVID-19 dengan menggunakan
                                     API gratis yang tersedia.
                                 </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                  <div class="btn-group">
-                                    <a href="covid.html"><button type="button" class="btn btn-sm btn-dark">View</button></a>
-                                  </div>
-                                </div>
                               </div>
                             </div>
-                        </div>
-                        <div class="col-md-4" id="item-4">
-                            <div class="card shadow-sm">
-                              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="Image/depositphotos_169745242-stock-illustration-rock-paper-scissors-icons.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>
-                  
-                              <div class="card-body">
-                                <p class="card-text">
-                                    Sebuah game sederhana yaitu batu gunting kertas yang dibuat di platform website dengan menggunakan HTML, CSS Bootsrap, dan dengan Javascript yang sederhana. Pada
-                                    game ini pengguna dapat memilih dari tiga pilihan yang tersedia untuk diadu dengan komputer.
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                  <div class="btn-group">
-                                    <a href="batuguntingkertas.html"><button type="button" class="btn btn-sm btn-dark">View</button></a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                          </a>
                         </div>
                     </div>
                 </div>
@@ -113,12 +90,12 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h3>Kontak</h3>
+                    <h3> <img src="./Image/icons8-phonelink-ring.gif" alt="contact-icon" height="40px" width="40px" style="border-radius: 5px;"> Kontak</h3>
                     <hr>
                     <p>
                         Email : <a href="mailto:diobanderas.job@gmail.com">diobanderas.job@gmail.com</a><br>
                         LinkedIn : <a href="https://www.linkedin.com/in/dio-banderas-283815222/">Dio Banderas</a><br>
-                        Instagram : <a href="https://www.instagram.com/dio.sql/">Dio Banderas</a><br>
+                        Instagram : <a href="https://www.instagram.com/dio.sql/">dio.sql</a><br>
                     </p>
                 </div>
             </div>
