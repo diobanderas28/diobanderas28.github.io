@@ -13,12 +13,22 @@
         
         #konten{
             padding: 10px;
-            width: 30%;
+            width: 50%;
+        }
+
+        .section-2{
+            margin-top: 50px;
         }
         
         @media (max-width: 768px) {
             #konten{
                 width: 100%;
+            }
+            .gap-atas{
+                margin-top: 20px;
+            }
+            .section-2{
+                margin-top: 20px;
             }
         }
     </style>
@@ -27,42 +37,75 @@
 </head>
 <body>
     <div class="container" id="konten">
-        <p><span id="tanggalwaktu"></span></p>
-        <div class="card mb-2">
-            <div class="card-body">
-                <center>
-                    <h5>Semua Kasus</h5>
-                    <text class="all-cases"></text>
-                    <small class="new-cases text-primary"></small>
-                </center>
+        <p>
+            <img src="./Image/icons8-calendar.gif" alt="icon-calendar" width="30px" height="30px">
+            <b><span id="tanggalwaktu"></span></b>
+        </p>
+        <p>
+            <h1>COVID-19 di Indonesia <span class="badge rounded-pill bg-danger rank text-light"></span></h1>
+        </p>
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Semua Kasus</h5>
+                        <img src="./Image/icons8-virus.gif" alt="covid-icon" width="25px" height="25px">
+                        <text class="all-cases"></text><br>
+                        <small class="new-cases text-primary"></small>
+                    </div>
+                </div>
             </div>
-        </div>
-            <div class="card mb-2">
-                <div class="card-body">
-                    <center>
+            <div class="col-md-3 gap-atas">
+                <div class="card" style="height: 125px;">
+                    <div class="card-body">
                         <h5>Kasus Aktif</h5>
+                        <img src="./Image/icons8-check-circle.gif" alt="active-icon" width="25px" height="25px">
                         <text class="active-cases"></text>
-                    </center>
+                    </div>
                 </div>
             </div>
-            <div class="card mb-2">
-                <div class="card-body">
-                    <center>
+            <div class="col-md-3 gap-atas">
+                <div class="card">
+                    <div class="card-body">
                         <h5>Kematian</h5>
-                        <text class="death-cases"></text>
+                        <img src="./Image/icons8-death.gif" alt="death-icon" width="25px" height="25px">
+                        <text class="death-cases"></text><br>
                         <small class="newDeath-cases text-danger"></small>
-                    </center>
+                    </div>
                 </div>
             </div>
-            <div class="card mb-2">
-                <div class="card-body">
-                    <center>
+            <div class="col-md-3 gap-atas">
+                <div class="card">
+                    <div class="card-body">
                         <h5>Sembuh</h5>
+                        <img src="./Image/icons8-cure-64.png" alt="cure-icon" width="25px" height="25px">
                         <text class="recover-cases"></text>
                         <small class="newRecover-cases text-success"></small>
-                    </center>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="row section-2">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4><img src="./Image/icons8-test-tube.gif" alt="tes-icon" width="30px" height="30px"> Tes COVID-19</h4>
+                        <hr>
+                        <text class="covid-tes"></text>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 gap-atas">
+                <div class="card">
+                    <div class="card-body">
+                        <h4><img src="./Image/icons8-geography.gif" alt="globe-icon" width="30px" height="30px"> Populasi</h4>
+                        <hr>
+                        <text class="populasi-indonesia"></text>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script>
         var tw = new Date();
@@ -85,6 +128,10 @@
         var totalSembuh = document.querySelector('.recover-cases');
         var sembuhBaru = document.querySelector('.newRecover-cases');
 
+        var covid_tes = document.querySelector('.covid-tes');
+        var populasi_indonesia = document.querySelector('.populasi-indonesia');
+        var rank = document.querySelector('.rank');
+
         fetch("https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/country-report-iso-based/Indonesia/idn", {
             "method": "GET",
             "headers": {
@@ -99,22 +146,40 @@
             semuaKasus.innerHTML = allCasesValue;
 
             var activeCasesValue = data[0]['ActiveCases'];
-            kasusAktif.innerHTML = activeCasesValue;
+            kasusAktif.innerHTML = activeCasesValue+' kasus';
 
             var newCasesValue = data[0]['NewCases'];
-            kasusBaru.innerHTML = '+'+newCasesValue;
+            kasusBaru.innerHTML = '+'+newCasesValue+' kasus';
 
             var deathCasesValue = data[0]['TotalDeaths'];
             totalKematian.innerHTML = deathCasesValue;
 
             var newDeathCasesValue = data[0]['NewDeaths'];
-            kematianBaru.innerHTML = '+'+newDeathCasesValue;
+            kematianBaru.innerHTML = '+'+newDeathCasesValue+' orang';
 
             var recoverCasesValue = data[0]['TotalRecovered'];
             totalSembuh.innerHTML = recoverCasesValue;
 
             var newRecoverCasesValue = data[0]['NewRecovered'];
-            sembuhBaru.innerHTML = '+'+newRecoverCasesValue;
+            sembuhBaru.innerHTML = '+'+newRecoverCasesValue+' orang';
+
+            var covid_tes_value = data[0]['TotalTests'];
+            covid_tes.innerHTML = covid_tes_value;
+
+            var populasi_indonesia_value = data[0]['Population'];
+            populasi_indonesia.innerHTML = populasi_indonesia_value+' jiwa';
+
+            var rank_value = data[0]['rank'];
+            if (rank_value === 1) {
+                rank.innerHTML = rank_value+'<sup>st</sup>';
+            }else if(rank_value === 2){
+                rank.innerHTML = rank_value+'<sup>nd</sup>';
+                
+            }else if(rank_value === 3){
+                rank.innerHTML = rank_value+'<sup>rd</sup>';
+            }else{
+                rank.innerHTML = rank_value+'<sup>th</sup>';
+            }
         })
         .catch(err => {
             console.error(err);
