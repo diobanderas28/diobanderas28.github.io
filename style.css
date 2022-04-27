@@ -12,9 +12,12 @@
 .atas{
     width: 100%;
     height: 300px;
-    text-align: center;
     background-color: #282828;
     color: white;
+}
+
+.text-c{
+    text-align: center;
 }
 
 .skill{
