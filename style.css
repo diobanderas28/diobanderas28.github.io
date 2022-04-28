@@ -17,7 +17,7 @@
 }
 
 .text-c{
-    text-align: center;
+  text-align: center;
 }
 
 .skill{
@@ -44,6 +44,17 @@
 
 .container > .row > .col > #dio-profile {
     border-radius: 50%;
+}
+
+.card{
+  overflow: hidden;
+}
+
+/*hover class img-hover*/
+.img-hover:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    opacity: 0.8;
 }
 
 .bd-placeholder-img {
