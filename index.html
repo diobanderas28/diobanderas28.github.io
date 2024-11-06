@@ -25,13 +25,15 @@
 <body>
     <div class="container">
         <div class="fullres">
-            <iframe id="powerbi" title="Dashboard Management Development" class="fullres" src="https://app.powerbi.com/view?r=eyJrIjoiN2UyMzdiNmYtYjM2YS00MDE0LTkwYmQtZTNhNjE2YmM3ZTgxIiwidCI6ImRmMjI1ZjI3LTRkZmEtNDMyMy1iNjAyLTRmZjk4NmI3NWVjNiIsImMiOjEwfQ%3D%3D&pageName=ae91879f620705b62dcd" frameborder="0" allowFullScreen="true"></iframe>
+            <iframe id="powerbi" title="Dashboard Management Development" class="fullres" src="" frameborder="0" allowFullScreen="true"></iframe>
         </div>
     </div>
 
     <script>
+
         var MaxPage = 10; //jumlah halaman
-        var TimeLoop = 35000; //dalam satuan ms
+        var TimeLoopGeneral = 15000; //dalam satuan ms
+        var TimeLoopSpecial = 35000; //dalam satuan ms
 
         var page1 = "https://app.powerbi.com/view?r=eyJrIjoiN2UyMzdiNmYtYjM2YS00MDE0LTkwYmQtZTNhNjE2YmM3ZTgxIiwidCI6ImRmMjI1ZjI3LTRkZmEtNDMyMy1iNjAyLTRmZjk4NmI3NWVjNiIsImMiOjEwfQ%3D%3D&pageName=ae91879f620705b62dcd";
         var page2 = "https://app.powerbi.com/view?r=eyJrIjoiN2UyMzdiNmYtYjM2YS00MDE0LTkwYmQtZTNhNjE2YmM3ZTgxIiwidCI6ImRmMjI1ZjI3LTRkZmEtNDMyMy1iNjAyLTRmZjk4NmI3NWVjNiIsImMiOjEwfQ%3D%3D&pageName=35926ee5691dde057f14";
@@ -44,23 +46,49 @@
         var page9 = "https://app.powerbi.com/view?r=eyJrIjoiN2UyMzdiNmYtYjM2YS00MDE0LTkwYmQtZTNhNjE2YmM3ZTgxIiwidCI6ImRmMjI1ZjI3LTRkZmEtNDMyMy1iNjAyLTRmZjk4NmI3NWVjNiIsImMiOjEwfQ%3D%3D&pageName=7be4a91ed7463fa79605";
         var page10 = "https://app.powerbi.com/view?r=eyJrIjoiN2UyMzdiNmYtYjM2YS00MDE0LTkwYmQtZTNhNjE2YmM3ZTgxIiwidCI6ImRmMjI1ZjI3LTRkZmEtNDMyMy1iNjAyLTRmZjk4NmI3NWVjNiIsImMiOjEwfQ%3D%3D&pageName=f072d8c3412bd5c61589";
 
+        document.getElementById('powerbi').src = page1;
 
-
+        //START
         var StartPage = 2;
 
-        setInterval(() => {
-            if(StartPage == MaxPage + 1){
-                StartPage = 1;
+        let interval;
+        let timeout;
+
+        function ChangePage(){
+            console.log("Page "+StartPage);
+
+            var pageVar = "page" + StartPage;
+
+            document.getElementById('powerbi').src = window[pageVar];
+        }
+
+        function RUN(){
+            clearInterval(interval);
+            console.log("Clear Interval!")
+
+            ChangePage();
+
+            if(StartPage == 5 || StartPage == 6 || StartPage == 10){
+                interval = setInterval(RUN, TimeLoopSpecial);
+                console.log("Interval set to " + TimeLoopSpecial + " ms");
+                if(StartPage + 1 > MaxPage){
+                    StartPage = 1;
+                }else{
+                    StartPage += 1;
+                }
             }else{
-                console.log("Page "+StartPage);
-
-                var pageVar = "page" + StartPage;
-
-                document.getElementById('powerbi').src = window[pageVar];
-
-                StartPage = StartPage + 1;
+                interval = setInterval(RUN, TimeLoopGeneral);
+                console.log("Interval set to " + TimeLoopGeneral + " ms");
+                if(StartPage + 1 > MaxPage){
+                    StartPage = 1;
+                }else{
+                    StartPage += 1;
+                }
             }
-        }, TimeLoop);
+        }
+
+        timeout = setTimeout(RUN, TimeLoopGeneral);
+
     </script>
 </body>
 </html>
